@@ -1,0 +1,963 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap");
+@import "tailwindcss";
+
+:root {
+  --background: #070b16;
+  --foreground: #f3f4f6;
+  --teal-glow: rgba(20, 184, 166, 0.35);
+  --cyan-glow: rgba(6, 182, 212, 0.35);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #070b16;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #14b8a6;
+}
+
+/* Glow effects */
+.glow-teal {
+  box-shadow: 0 0 50px -10px var(--teal-glow);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 50px -10px var(--cyan-glow);
+}
+
+/* 3D Flip Card Styles */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ==========================================================
+   WordPress (zyntechlabs.io) home page parity styles
+   Mirrors assets/css/style.css so the home sections match
+   the live WP site 1:1 in look, feel and animation.
+========================================================== */
+.font-display {
+  font-family: "Syne", sans-serif;
+}
+
+.badge-teal {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 201, 167, 0.1);
+  border: 1px solid rgba(0, 201, 167, 0.25);
+  border-radius: 100px;
+  padding: 0.35rem 1rem;
+  font-size: 0.75rem;
+  color: #00c9a7;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #00c9a7;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+/* 3D flip cards (industries) */
+.industry-item {
+  background: transparent;
+  perspective: 1500px;
+}
+
+.flip-card {
+  background-color: #14141c;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  perspective: 1500px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+}
+
+.industry-item:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 201, 167, 0.25);
+  border-radius: 10px;
+}
+
+.flip-card-front {
+  transform: rotateY(0deg);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #14141c;
+  gap: 10px;
+  padding: 1.5rem;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  text-align: left;
+  justify-content: flex-start;
+  background: #14141c;
+  padding: 25px;
+}
+
+.flip-card-back p {
+  font-size: 14px;
+  line-height: 22px;
+  color: #a0a0b8;
+  margin: 0;
+}
+
+/* service / innovation cards */
+.service-card {
+  background: #14141c;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 2rem;
+  height: 100%;
+  transition: border-color 0.2s;
+}
+
+.service-card:hover {
+  border-color: rgba(0, 201, 167, 0.25);
+}
+
+.service-card .icon-square {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  background: rgba(0, 201, 167, 0.1);
+  border: 1px solid rgba(0, 201, 167, 0.25);
+  border-radius: 10px;
+}
+
+.service-card .icon-square img {
+  width: 100%;
+  max-width: 30px;
+  height: auto;
+}
+
+/* logo marquee (trusted-by + tech stack) */
+.slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-slide 40s linear infinite;
+}
+
+.marquee-track-reverse {
+  animation: marquee-slide-reverse 40s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-group {
+  display: flex;
+}
+
+@keyframes marquee-slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-slide-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* enterprise pillars + stat boxes */
+.pillar-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  min-height: 170px;
+  height: 100%;
+}
+
+.stat-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  min-height: 120px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.stat-box h3 {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.stat-box-full {
+  background: rgba(0, 201, 167, 0.1);
+  border: 1px solid rgba(0, 201, 167, 0.25);
+  border-radius: 12px;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.big-number {
+  font-family: "Syne", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #00c9a7;
+  display: block;
+  line-height: 1.2;
+}
+
+/* section background textures (same assets as zyntechlabs.io) */
+.circuit_bg {
+  background: url("/images/bg_pattern.webp") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.cta_sec {
+  background: url("/images/ai_cta_bg.webp") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.industries_cta_sec {
+  background: url("/images/industries_cta_bg.webp") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.btn-white-outlined {
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 0.7rem 1.8rem;
+  border-radius: 8px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.btn-white-outlined:hover {
+  background: #00c9a7;
+  color: #000;
+  border-color: #00c9a7;
+}
+
+.btn-teal-primary {
+  --btn-hover-bg: #00a78d;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 0.7rem 1.8rem;
+  border: none;
+  border-radius: 8px;
+  background: #00c9a7;
+  color: #0a0a0f;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.35s ease, transform 0.25s ease, box-shadow 0.35s ease;
+}
+
+.btn-teal-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--btn-hover-bg);
+  transition: width 0.35s ease;
+  z-index: -1;
+}
+
+.btn-teal-primary:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 150, 150, 0.2);
+}
+
+.btn-teal-primary:hover::before {
+  width: 100%;
+}
+
+/* ==========================================================
+   Case study pages (GIG Logistics / Tarzan Transport) parity
+   These WP pages use a light theme, distinct from the rest
+   of the (dark) site — ported from style.css / responsive.css.
+========================================================== */
+:root {
+  --ink-gig: #fc1414;
+  --ink-dark-gray: #cccccc;
+  --ink-tarzan-blue: #2e3192;
+}
+
+.gray_dark {
+  color: var(--ink-dark-gray);
+}
+
+.main_sec {
+  padding-top: 100px;
+  background: white;
+}
+
+.banner_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+  align-items: end;
+  gap: 18px;
+}
+
+.info h1 {
+  color: #0a0a0f;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.info h1 span {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.black_color {
+  color: #0a0a0f;
+}
+
+.gig_color {
+  color: var(--ink-gig);
+}
+
+.grid_item {
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.grid_item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.item1 {
+  height: 370px;
+}
+.item2 {
+  height: 265px;
+}
+.item3 {
+  height: 185px;
+}
+.item4 {
+  height: 265px;
+}
+.item5 {
+  height: 370px;
+}
+
+.about_gig {
+  background: #fafafa;
+}
+
+.spotlight_btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: var(--ink-gig);
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  width: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about_box {
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  border-radius: 30px;
+}
+.about_box.second {
+  background: var(--ink-gig);
+}
+.about_box h3 {
+  font-size: 24px;
+}
+
+/* Accordion */
+.custom-accordion .accordion-item {
+  border: none;
+  background: #181821;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border-radius: 16px !important;
+}
+
+.custom-accordion .accordion-button {
+  background: #181821;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 25px;
+  box-shadow: none;
+  width: 100%;
+  text-align: left;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.custom-accordion .accordion-button.active {
+  background: var(--ink-gig);
+  color: #fff;
+}
+
+.custom-accordion .accordion-body {
+  background: var(--ink-gig);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 0 16px 16px;
+}
+
+.problem-section {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  z-index: 1;
+}
+
+.problem-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 450px;
+  height: 450px;
+  background: url("/images/before_line_trans.webp") no-repeat !important;
+  background-size: contain !important;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.problem-section::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 370px;
+  height: 400px;
+  background: url("/images/after_line_trans.webp") no-repeat !important;
+  background-size: contain !important;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.problem-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* GIG Services (floating cards over hero image) */
+.gig_services_wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gig_services_img {
+  width: 800px;
+  max-width: 100%;
+}
+.gig_services_card {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 15px;
+  position: absolute;
+  left: 90px;
+  top: 70px;
+}
+.secure_paybill {
+  left: 250px;
+  top: 430px;
+}
+.multi_booking_support {
+  top: 0px;
+  left: 500px;
+}
+.real_time_tracking {
+  top: 530px;
+  left: 670px;
+}
+.bulk_shippment {
+  top: 110px;
+  left: 950px;
+}
+.instant_quotation {
+  top: 330px;
+  left: 1050px;
+}
+.gig_services_card img {
+  width: 40px;
+}
+.gig_services_card p {
+  font-weight: 600;
+}
+
+@media (max-width: 1399.98px) {
+  .gig_services_card {
+    position: static !important;
+  }
+  .gig_services_wrapper {
+    flex-direction: row !important;
+    justify-content: space-between;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+  .gig_services_img {
+    width: 500px !important;
+  }
+  .gig_services_card_main_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .gig_services_card {
+    width: 260px !important;
+  }
+}
+@media (max-width: 991.98px) {
+  .banner_grid {
+    width: 60%;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 18px;
+  }
+  .item1 {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .item5 {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .item2 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .item4 {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .item3 {
+    grid-column: 1 / 3;
+    grid-row: 3;
+  }
+  .gig_services_wrapper {
+    flex-direction: column !important;
+  }
+  .gig_services_card_main_wrapper {
+    justify-content: center;
+  }
+  .gig_services_card {
+    width: 250px !important;
+  }
+  .gig_services_img {
+    width: 450px !important;
+  }
+  .custom-accordion .accordion-button {
+    font-size: 22px;
+    padding: 20px;
+  }
+  .custom-accordion .accordion-body {
+    font-size: 16px;
+    padding: 0 20px 20px;
+  }
+}
+@media (max-width: 767.98px) {
+  .banner_grid {
+    width: unset;
+  }
+  .custom-accordion .accordion-button {
+    font-size: 18px;
+  }
+  .about_tarzan a {
+    margin: auto;
+  }
+}
+
+/* Partner CTA (decorative corner patterns) */
+.partner_with_zyntech {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  z-index: 1;
+}
+.partner_with_zyntech::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 450px;
+  height: 450px;
+  background: url("/images/parther_zyntech_before.webp") no-repeat !important;
+  background-size: contain !important;
+  pointer-events: none;
+  z-index: 0;
+}
+.partner_with_zyntech::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  height: 200px;
+  background: url("/images/parther_zyntech_after.webp") no-repeat !important;
+  background-size: contain !important;
+  pointer-events: none;
+  z-index: 0;
+}
+.partner_with_zyntech > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Solution / feature cards */
+.feature-card {
+  background: #fff;
+  padding: 20px;
+  height: 100%;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 4px solid #dcdcdc;
+  transition: 0.6s;
+}
+.feature-card:hover {
+  border-bottom: 4px solid #ff1b1b;
+}
+.feature-card img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+.feature-card h3 {
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+.feature-card p {
+  font-size: 14px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Tech stack (case study) */
+.technology_stack {
+  background: #fafafa;
+}
+.technology_stack_card_wrapper {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.technology_stack_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 100%;
+}
+.technology_stack_card img {
+  width: 120px;
+  height: 120px;
+  border: 1px solid #fc1414;
+  border-radius: 22px;
+  padding: 18px;
+}
+.technology_stack_card p {
+  font-size: 18px;
+  font-weight: 700;
+}
+.tarzan_stack_card img {
+  border: 1px solid #e8e8e8;
+}
+@media (max-width: 575.98px) {
+  .technology_stack_card img {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+  }
+  .technology_stack_tarzan {
+    flex-wrap: wrap;
+  }
+}
+
+/* Results & business impact */
+.result_business_card {
+  padding: 20px;
+  background: #fafafa;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  height: 150px;
+}
+.result_business_card h3 {
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+.result_business_card p {
+  margin-bottom: 0px;
+  text-transform: uppercase;
+}
+.result_business_card.red {
+  background: var(--ink-gig);
+}
+.result_business_card.black {
+  background: black;
+}
+
+/* Tarzan Transport specific */
+.tarzan_transport_case_study_div h1 span {
+  color: var(--ink-tarzan-blue);
+  font-weight: unset;
+  font-size: unset;
+}
+.tarzan_btn_blue {
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: var(--ink-tarzan-blue);
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  width: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about_box.secondtarzan {
+  background: var(--ink-tarzan-blue);
+}
+.partner_with_zyntech_tarzan {
+  background: url("/images/partner_zyntech_tarzan.webp") no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+.tarzan_btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: #ffd336;
+  color: black;
+  text-decoration: none;
+  font-size: 15px;
+  width: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tarzan_transport_result_first {
+  background: black;
+  color: white;
+}
+.tarzan_transport_result_second {
+  background: #ffd336;
+  color: black;
+}
+.tarzan_transport_result_third {
+  background: var(--ink-tarzan-blue);
+  height: 100%;
+}
+.result_business_card_tarzan_image img {
+  border-radius: 30px;
+}
+.ready_to_build_tarzan {
+  background: url("/images/ready_to_build_bg.webp") no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+.key_challenges_tarzan {
+  background: url("/images/key_challenges_tarzan_bg.webp") no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.accordion-tarzan .accordion-item {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.accordion-tarzan .accordion-button {
+  background: transparent;
+  color: #fff;
+  box-shadow: none;
+  padding: 20px 50px 20px 22px;
+  font-size: 18px;
+  font-weight: 600;
+  position: relative;
+  transition: 0.35s;
+  width: 100%;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+}
+.accordion-tarzan .accordion-button:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+.accordion-tarzan .accordion-button.active {
+  background: unset;
+  color: #ffc928;
+}
+.accordion-tarzan .accordion-button .plus-h {
+  content: "";
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  width: 18px;
+  height: 2px;
+  background: #fff;
+  transform: translateY(-50%);
+  transition: 0.3s;
+  border-radius: 10px;
+}
+.accordion-tarzan .accordion-button .plus-v {
+  position: absolute;
+  right: 36px;
+  top: 50%;
+  width: 2px;
+  height: 18px;
+  background: #fff;
+  transform: translateY(-50%);
+  transition: 0.3s;
+  border-radius: 10px;
+}
+.accordion-tarzan .accordion-button.active .plus-h {
+  background: #ffc928;
+}
+.accordion-tarzan .accordion-button.active .plus-v {
+  transform: translateY(-50%) scaleY(0);
+}
+.accordion-tarzan .accordion-body {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+  font-size: 16px;
+  padding: 0 20px 20px;
+}
+
+.solution_what_we_tarzan_card {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+.solution_what_we_tarzan_card > div {
+  padding: 20px 20px 0px 20px;
+}
+.solution_what_we_tarzan_card > div h3 {
+  font-weight: 600;
+}
