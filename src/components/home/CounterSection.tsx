@@ -12,7 +12,7 @@ const stats = [
 
 export function CounterSection() {
   return (
-    <section id="counter_experience" className="py-5 circuit_bg">
+    <section id="counter_experience" className="py-12 circuit_bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6 justify-center">
           {stats.map((stat, i) => (

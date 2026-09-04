@@ -50,10 +50,10 @@ export function Navbar() {
             <Image
               src="/zyntech_logo.svg"
               alt="ZynTech Labs Logo"
-              width={185}
+              width={150}
               height={32}
               priority
-              className="h-8 sm:h-9 md:h-10 w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-8 sm:h-9 md:h-10 w-[150] object-contain transition-transform group-hover:scale-105"
             />
           </Link>
 
@@ -130,7 +130,7 @@ export function Navbar() {
           <div className="hidden lg:flex items-center gap-3.5">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-5 py-2 rounded-xl bg-teal-500 hover:bg-teal-400 text-black font-semibold text-sm transition-colors"
+              className="inline-flex items-center justify-center rounded-lg border border-teal-500/40 bg-teal-950/30 px-5 py-2 text-sm font-semibold text-teal-400 transition-all duration-200 hover:border-teal-400 hover:bg-teal-950/70 hover:text-teal-400 hover:shadow-[0_0_14px_rgba(45,212,191,0.16)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
             >
               Contact us
             </Link>
