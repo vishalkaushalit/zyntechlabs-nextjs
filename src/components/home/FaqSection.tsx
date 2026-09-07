@@ -58,21 +58,21 @@ export function FaqSection({
   };
 
   return (
-    <section id={id} className="py-24 bg-[#070b16] relative border-t border-gray-800/80">
+    <section id={id} className="py-12 bg-[#070b16] relative border-t border-gray-800/80">
       {/* Structured Data FAQ Schema for Google Rich Snippets */}
       <FaqSchema faqs={faqs} />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full lg:max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal direction="up">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-teal-400 font-mono font-bold bg-teal-950/60 border border-teal-500/30 px-3 py-1 rounded-md mb-3">
+            <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-teal-400 font-sans font-bold bg-teal-950/60 border border-teal-500/30 px-3 py-1 rounded-md mb-3">
               <HelpCircle className="w-3.5 h-3.5" />
               <span>{eyebrow}</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-4">
+            <h2 className="text-[30px] lg:text-[50px] font-bold text-white tracking-[-0.065em] leading-[1.2] mb-4">
               {heading}
             </h2>
-            <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-400 text-sm sm:text-base w-full lg:max-w-2xl mx-auto leading-relaxed">
               {subheading}
             </p>
           </div>

@@ -4,13 +4,13 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 export function EnterpriseSection() {
   return (
-    <section id="enterprise" className="bg-[#14141c] py-5 border-t border-b border-white/[0.07]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <section id="enterprise" className="py-12 bg-[#14141c] border-t border-b border-white/[0.07]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="lg:pr-8">
             <ScrollReveal direction="left">
               <span className="section-tag">Enterprise-Grade Software Engineering for Scalable Growth</span>
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
+              <h2 className="font-display text-[30px] lg:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
                 Built for enterprises
                 <br />
                 that cannot afford failure

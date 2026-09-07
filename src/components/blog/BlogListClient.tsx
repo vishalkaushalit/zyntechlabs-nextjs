@@ -26,7 +26,7 @@ export function BlogListClient({ posts }: { posts: BlogPost[] }) {
           <button
             type="button"
             onClick={() => setActiveCategory(null)}
-            className={`px-4 py-2 rounded-xl text-xs font-extrabold transition-colors ${
+            className={`px-4 py-2 rounded-xl text-xs capitalize font-extrabold transition-colors ${
               activeCategory === null
                 ? 'bg-teal-500 text-black shadow-md shadow-teal-500/20'
                 : 'bg-gray-900/80 hover:bg-gray-800 text-gray-300 hover:text-white border border-gray-800 font-semibold'
@@ -39,7 +39,7 @@ export function BlogListClient({ posts }: { posts: BlogPost[] }) {
               key={i}
               type="button"
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs transition-colors ${
+              className={`px-4 py-2 rounded-xl text-xs capitalize transition-colors ${
                 activeCategory === cat
                   ? 'bg-teal-500 text-black font-extrabold shadow-md shadow-teal-500/20'
                   : 'bg-gray-900/80 hover:bg-gray-800 text-gray-300 hover:text-white border border-gray-800 font-semibold'

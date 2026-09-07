@@ -53,7 +53,7 @@ export function Navbar() {
               width={150}
               height={32}
               priority
-              className="h-8 sm:h-9 md:h-10 w-[150] object-contain transition-transform group-hover:scale-105"
+              className="h-8 sm:h-9 md:h-10 w-[150px] object-contain transition-transform group-hover:scale-105"
             />
           </Link>
 
@@ -137,10 +137,10 @@ export function Navbar() {
           </div>
 
           {/* Mobile Right Quick Buttons */}
-          <div className="flex lg:hidden items-center gap-2">
+          <div className="flex shrink-0 lg:hidden items-center gap-2">
             <Link
               href="/contact"
-              className="text-xs bg-teal-500 text-black font-bold px-3 py-1.5 rounded-xl"
+              className="text-xs bg-teal-950/30 text-teal-400 font-bold px-3 py-1.5 rounded-lg outline outline-1 -outline-offset-1 outline-teal-500/40 transition-all duration-200 hover:outline-teal-400 hover:bg-teal-950/70 hover:shadow-[0_0_14px_rgba(45,212,191,0.16)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
             >
               Contact
             </Link>

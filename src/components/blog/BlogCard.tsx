@@ -26,7 +26,7 @@ export function BlogCard({ post }: { post: BlogPost }) {
             {post.categories.map((cat) => (
               <span
                 key={cat.slug}
-                className="bg-teal-500/90 text-black text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm"
+                className="bg-teal-500/90 text-black text-xs font-bold px-3 py-1 rounded-full capitalize backdrop-blur-sm"
               >
                 {cat.title}
               </span>

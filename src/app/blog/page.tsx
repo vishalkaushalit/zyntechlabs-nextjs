@@ -23,11 +23,11 @@ export default async function BlogPage() {
 
         {/* Page Header */}
         <div className="max-w-3xl pt-6 mb-12">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-teal-400 font-mono font-bold bg-teal-950/60 border border-teal-500/30 px-3 py-1 rounded-md mb-3">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-teal-400 font-sans font-bold bg-teal-950/60 border border-teal-500/30 px-3 py-1 rounded-md mb-3">
             <Newspaper className="w-3.5 h-3.5" />
             <span>Engineering & Architecture Insights</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight mt-2 mb-4">
+          <h1 className="text-[30px] md:text-[40px] lg:text-[50px] font-bold leading-[1.2] tracking-[-0.065em] text-white mt-2 mb-4">
             Insights on Enterprise Software & AI
           </h1>
           <p className="text-gray-300 text-base sm:text-lg leading-relaxed">

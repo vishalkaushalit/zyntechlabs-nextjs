@@ -100,7 +100,7 @@ export default async function BlogPostDetailPage({ params }: Props) {
             {post.categories?.map((cat) => (
               <span
                 key={cat.slug}
-                className="bg-teal-500 text-black text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider"
+                className="bg-teal-500 text-black text-xs font-extrabold px-3 py-1 rounded-full capitalize tracking-wider"
               >
                 {cat.title}
               </span>
@@ -115,7 +115,7 @@ export default async function BlogPostDetailPage({ params }: Props) {
             )}
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-[1.15] mb-6">
+          <h1 className="text-[30px] md:text-[40px] lg:text-[50px] font-bold text-white tracking-[-0.065em] leading-[1.2] mb-6">
             {post.title}
           </h1>
 

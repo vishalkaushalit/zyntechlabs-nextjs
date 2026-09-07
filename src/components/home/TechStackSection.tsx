@@ -5,11 +5,11 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 export function TechStackSection() {
   return (
-    <section id="tech_stack" className="py-5 circuit_bg">
+    <section id="tech_stack" className="py-12 circuit_bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal direction="up">
-          <div className="max-w-2xl mx-auto text-center mb-4">
-            <h2 className="font-display text-white text-2xl sm:text-3xl md:text-4xl font-bold">
+          <div className="w-full lg:max-w-2xl mx-auto text-center mb-4">
+            <h2 className="font-display text-white text-[30px] lg:text-4xl font-bold">
               Tech Stack We Use for Enterprise Software Development
             </h2>
             <p className="text-[#a0a0b8]">

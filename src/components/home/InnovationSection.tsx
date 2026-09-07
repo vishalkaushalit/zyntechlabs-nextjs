@@ -5,12 +5,12 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 export function InnovationSection() {
   return (
-    <section id="innovation" className="py-5 circuit_bg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <section id="innovation" className="py-12 circuit_bg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal direction="up">
-          <div className="max-w-3xl mb-8">
+          <div className="w-full lg:max-w-3xl mb-8">
             <span className="section-tag">Smart Innovation</span>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
+            <h2 className="font-display text-[30px] lg:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
               Unlock Business Potential Through AI-Powered Smart Applications
             </h2>
             <p className="text-[#a0a0b8] text-base sm:text-lg leading-relaxed">
