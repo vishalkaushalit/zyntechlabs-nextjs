@@ -7,7 +7,7 @@ export function HeroSection() {
   return (
     <section className="py-12 relative flex min-h-screen items-center justify-center overflow-hidden bg-[#08090e] px-4 sm:px-6 lg:px-8">
       {/* Subtle technical grid background */}
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(71,76,88,0.22)_1px,transparent_1px),linear-gradient(to_bottom,rgba(71,76,88,0.22)_1px,transparent_1px)] bg-[size:60px_60px]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(71,76,88,0.22)_1px,transparent_1px),linear-gradient(to_bottom,rgba(71,76,88,0.22)_1px,transparent_1px)] bg-size-[60px_60px]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_42%_46%_at_50%_43%,rgba(0,201,167,0.075),transparent_72%)]" />
 
       <div className="relative z-10 mx-auto w-full lg:w-[85%] max-w-5xl text-center">
